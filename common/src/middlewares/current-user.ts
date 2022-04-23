@@ -1,6 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
+declare module 'express-session' {
+  export interface SessionData {
+    jwt: string;
+  }
+}
+
 interface UserPayload {
   id: string;
   email: string;
