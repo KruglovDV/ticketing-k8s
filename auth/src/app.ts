@@ -2,7 +2,7 @@ import express from 'express';
 import { json } from 'body-parser';
 import 'express-async-errors';
 import cookieSession from 'cookie-session';
-import { errorHandler, NotFoundError } from 'common';
+import { errorHandler, NotFoundError } from '@ticketing-kr/common';
 
 import { currentUserRouter } from './routes/current-user';
 import { signinRouter } from './routes/signin';

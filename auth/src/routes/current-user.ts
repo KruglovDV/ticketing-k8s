@@ -1,5 +1,5 @@
 import express from 'express';
-import { currentUser, requireAuth } from 'common';
+import { currentUser, requireAuth } from '@ticketing-kr/common';
 
 
 const router = express.Router();
