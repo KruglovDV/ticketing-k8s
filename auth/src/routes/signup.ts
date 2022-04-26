@@ -5,6 +5,7 @@ import { BadRequestError, validateRequest } from '@ticketing-kr/common';
 
 import { User } from '../models/user';
 
+
 const router = express.Router();
 
 router.post('/api/users/signup', [
@@ -24,6 +25,7 @@ router.post('/api/users/signup', [
   await user.save();
 
   const userJwt = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_KEY!);
+  // @ts-ignore
   req.session = { jwt: userJwt };
 
   res.status(201).send(user);

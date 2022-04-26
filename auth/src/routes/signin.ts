@@ -27,6 +27,7 @@ router.post('/api/users/signin', [
   }
 
   const userJwt = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_KEY!);
+  // @ts-ignore
   req.session = { jwt: userJwt };
   res.status(200).send(user);
 });
