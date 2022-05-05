@@ -9,6 +9,8 @@ declare global {
   var signin: () => string[];
 }
 
+jest.mock('../nats-wrapper');
+
 let mongo: MongoMemoryServer;
 
 beforeAll(async() => {
@@ -19,6 +21,7 @@ beforeAll(async() => {
 });
 
 beforeEach(async() => {
+  jest.clearAllMocks();
   const collections = await mongoose.connection.db.collections();
   collections.forEach(collection => collection.deleteMany({}));
 });
