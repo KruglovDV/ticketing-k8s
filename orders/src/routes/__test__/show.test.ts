@@ -4,7 +4,11 @@ import { app } from '../../app';
 import { Ticket } from '../../models/ticket';
 
 it('Fetches order', async () => {
-  const ticket = Ticket.build({ title: 'ticket', price: 20 })
+  const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
+    title: 'ticket',
+    price: 20
+  })
   await ticket.save();
 
   const user = signin();
@@ -25,7 +29,11 @@ it('Fetches order', async () => {
 });
 
 it('Returns and error if user not own the order', async () => {
-  const ticket = Ticket.build({ title: 'ticket', price: 20 })
+  const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
+    title: 'ticket',
+    price: 20
+  })
   await ticket.save();
 
   const user = signin();
